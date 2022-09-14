@@ -308,9 +308,9 @@ extension CalendarPicker: UIPickerViewDelegate {
         return rowHeight ?? 31.0
     }
     
-    public func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return self.localeType.width(dateType: self.localeType.dateArray(self.dateFormatType)[component], isShowWeek: self.isShowWeek)
-    }
+//    public func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+//        return self.localeType.width(dateType: self.localeType.dateArray(self.dateFormatType)[component], isShowWeek: self.isShowWeek)
+//    }
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.availableYearDate()
@@ -375,6 +375,9 @@ extension CalendarPicker: UIPickerViewDataSource {
                     ]))
             }
         }
+        
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         label.attributedText = attributedString
         return label
     }
