@@ -66,6 +66,12 @@ open class CalendarPicker: UIView {
         }
     }
     
+    public var rowHeight: CGFloat? = 66.0 {
+        didSet {
+            self.updateDate(animated: false)
+        }
+    }
+    
     public var saturdayColor: UIColor? = UIColor(red: 31/255, green: 119/255, blue: 219/255, alpha: 1) {
         didSet {
             self.updateDate(animated: false)
@@ -299,7 +305,7 @@ open class CalendarPicker: UIView {
 // MARK: UIPickerViewDelegate
 extension CalendarPicker: UIPickerViewDelegate {
     public func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 31.0
+        return rowHeight ?? 31.0
     }
     
     public func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
